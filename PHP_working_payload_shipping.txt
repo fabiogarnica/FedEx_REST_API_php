@@ -1,0 +1,107 @@
+//shipment
+$payload = [];
+
+$payload["accountNumber"] = [
+     "value" => "YOUR ACCOUNT"
+];
+
+$payload["mergeLabelDocOption"] = "LABELS_ONLY";
+
+$payload["requestedShipment"] = [];
+
+$payload["requestedShipment"]["shipDatestamp"] = '2024-09-06';
+
+$payload["requestedShipment"]["shipper"]["address"] = [
+	"streetLines" => [
+		"YOUR SHIPPER ADDRESS"
+	],
+	"city" =>  "CITY",
+	"stateOrProvinceCode" => "STATE",
+	"postalCode"    => "ZIP",
+    "countryCode"   => "COUNTRY",
+];
+
+$payload["requestedShipment"]["shipper"]["contact"]  = [
+				  "personName" => "SHIPPER_PERSON",
+				  "phoneNumber" => "SHIPPER_PHONE",
+				  "companyName" => "SHIPPER_COMPANY",
+
+];
+
+
+$payload["requestedShipment"]["recipients"][0] = [
+ "contact" => [
+	"personName" => "RECIPIENT_PERSON",
+	"phoneNumber" => "RECIPIEN_PHONE",
+	"companyName" => "RECIPIENT_COMPANY",
+	"emailAddress" => "RECIPIENT_EMAIL",
+ ],
+"address" => [ 
+   		"streetLines" => [
+			"RECIPIENT_ADDRESS"
+		],
+		"city" =>  "RECIPIENT_CITY",
+		"stateOrProvinceCode" => "RECIPIENT_STATE",
+		"postalCode"    => "RECIPIENT_ZIP",
+  		"countryCode"   => "RECIPIENT_COUNTRY",
+		
+	],
+];
+
+$payload["requestedShipment"]["shippingChargesPayment"] = [
+	"paymentType" => "SENDER",
+	"payor" => [
+				"responsibleParty" => [
+					"accountNumber" => [
+						"value" => "ACCOUNT",
+        		],
+				]
+	]
+];
+
+$payload["requestedShipment"]["pickupType"] = "USE_SCHEDULED_PICKUP";
+
+$payload["requestedShipment"]["rateRequestType"] = ["ACCOUNT"];
+
+$payload["requestedShipment"]["packagingType"] = "YOUR_PACKAGING";
+
+$payload["requestedShipment"]["serviceType"] = "FIRST_OVERNIGHT";
+
+$payload["requestedShipment"]["totalPackageCount"] = "1";
+
+$payload["requestedShipment"]["requestedPackageLineItems"][0] = [
+	"sequenceNumber" => '1',
+			"customerReferences" =>  [
+				[
+					"customerReferenceType" => "REFERENCE1",
+					"value" =>  "VALUE"
+        		],
+				[
+					"customerReferenceType" => "REFERENCE2",
+					"value" => "VALUE"
+        		],
+        		[
+					"customerReferenceType" => "REFERENCE3",
+					"value" => "VALUE"
+        		],
+			],
+    "weight" => [
+        "units" => "LB",
+        "value" => "10"
+	],
+	"dimensions" => [
+				"length" => '5',
+				"width" => '5',
+				"height" => '5',
+				"units" => 'IN'
+      ],
+	"groupPackageCount" => "1"
+];
+
+$payload["requestedShipment"]["labelSpecification"] = [
+			"labelFormatType" => "COMMON2D",
+			"labelStockType" => "STOCK_4X6",
+			"imageType" => "ZPLII",
+];
+
+$payload["labelResponseOptions"] = "LABEL";
